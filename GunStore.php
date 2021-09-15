@@ -2,26 +2,23 @@
 
 class GunStore
 {
-    private array $weapons;
+    private array $guns;
 
-    public function __construct(array $weapons)
+    public function __construct(array $guns)
     {
-        foreach ($weapons as $weapon)
+        foreach ($guns as $gun)
         {
-            $this->add($weapon);
+            $this->add($gun);
         }
     }
 
-    public function add(Gun $weapon)
+    public function add(ListedItem $listedItem): void
     {
-        $this->weapons[] = $weapon;
+        $this->guns[] = $listedItem;
     }
 
-    public function listAllGuns(): void
+    public function getGuns(): array
     {
-        foreach ($this->weapons as $weapon)
-        {
-            echo "{$weapon->getName() } | {$weapon->getLicenseNumber()}" . PHP_EOL;
-        }
+        return $this->guns;
     }
 }

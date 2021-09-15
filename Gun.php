@@ -2,15 +2,15 @@
 
 class Gun
 {
-    private string $name;
-    private string $licenseNumber;
-    protected int $power;
-    protected int $bulletSize;
+    protected string $name;
+    protected string $licenseNumber;
+    protected int $trajectory;
 
     public function __construct(string $name, string $licenseNumber)
     {
         $this->name = $name;
         $this->licenseNumber = $licenseNumber;
+        $this->setTrajectory();
     }
 
     public function getName(): string
@@ -23,18 +23,13 @@ class Gun
         return $this->licenseNumber;
     }
 
-    public function setPower(int $power): void
-    {
-        $this->power = $power;
-    }
-
-    public function setBulletSize(int $bulletSize): void
-    {
-        $this->bulletSize = $bulletSize;
-    }
-
     public function getTrajectory(): int
     {
-        return $this->trajectoryFormula($this->power, $this->bulletSize);
+        return $this->trajectory;
+    }
+
+    protected function setTrajectory(): int
+    {
+        return $this->trajectory = (14 * 10) / 5;
     }
 }
